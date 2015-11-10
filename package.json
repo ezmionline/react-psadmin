@@ -1,0 +1,11 @@
+{
+  "name": "react-psadmin",
+  "version": "1.0.0",
+  "description": "Pluralsight Project Work Along \"Building Applications with React and Flux\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Edward Smith (edward@ezmi.co.uk)",
+  "license": "ISC"
+}
