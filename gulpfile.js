@@ -7,6 +7,7 @@ var browserify = require('browserify');
 var reactify = require('reactify');
 var source = require('vinyl-source-stream');
 var concat = require('gulp-concat');
+var lint = require('gulp-eslint');
 
 var config = {
   port:9005,
@@ -60,12 +61,20 @@ gulp.task('css', function(){
     .pipe(concat('bundle.css'))
     .pipe(gulp.dest(config.paths.dist + '/css'))
     .pipe(connect.reload());
-})
+});
+
+gulp.task('lint', function(){
+  return gulp.src(config.paths.js)
+          .pipe(lint({
+            config: 'eslint.config.json'
+          }))
+          .pipe(lint.format());
+});
 
 gulp.task('watch', function(){
   gulp.watch(config.paths.html, ['html']);
-  gulp.watch(config.paths.js, ['js']);
+  gulp.watch(config.paths.js, ['js', 'lint']);
   gulp.watch(config.paths.css, ['css']);
 });
 
-gulp.task('serve', ['html', 'js', 'css', 'open', 'watch']);
+gulp.task('serve', ['html', 'js', 'css', 'lint', 'open', 'watch']);
