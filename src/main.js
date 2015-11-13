@@ -37,7 +37,7 @@ var Header = require('./components/common/header');
     React.render(<App route={route} />, document.getElementById('app'));
   }
 
-  win.addEventListener('hashChange', render);
+  win.addEventListener('hashchange', render);
   render();
 
 
