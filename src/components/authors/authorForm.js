@@ -12,13 +12,13 @@ var AuthorForm = React.createClass({
           name="firstName"
           label="First Name:"
           value={this.props.author.firstName}
-          onChnage={this.props.onChange} />
+          onChange={this.props.onChange} />
 
         <Input
           name="lastName"
           label="Last Name:"
           value={this.props.author.lastName}
-          onChnage={this.props.onChange} />
+          onChange={this.props.onChange} />
 
         <input type="submit" value="Save" className="btn btn-default" />
       </form>
